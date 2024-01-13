@@ -35,7 +35,7 @@ az group create --name arm-vscode --location eastus
 
 az deployment group create --resource-group arm-vscode --template-file demo2.json --parameters dev.parameters.json
 
-az deployment group create --resource-group arm-vscode --template-file demo.json --parameters prod.parameters.json
+az deployment group create --resource-group arm-vscode --template-file demo2.json --parameters prod.parameters.json
 ```
 
 # Demo 3
