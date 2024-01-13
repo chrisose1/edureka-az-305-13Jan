@@ -8,3 +8,15 @@ https://learn.microsoft.com/en-us/cli/azure/
 
 - verify the installation (git bash (windows) /terminal  (mac)):
 `az --version`
+
+# Azure basics
+
+- https://portal.azure.com - azure portal
+
+# Getting Started with Azure Resource Manager
+```
+az login
+az group create --name arm-vscode --location eastus
+
+az deployment group create --resource-group arm-vscode --template-file demo.json 
+```
