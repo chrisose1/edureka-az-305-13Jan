@@ -4,21 +4,27 @@
     "parameters": {
         "storageName": {
             "type": "string",
-            "minLength": 3,
-            "maxLength": 24
+            "minLength": 3 ,
+            "maxLength":24
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
         }
     },
     "functions": [],
-    "variables": {},
+    "variables": {
+        "uniqueStorageName": "[concat(parameters('storageName'),uniqueString(resourceGroup().id))]"
+    },
     "resources": [{
-        "name": "[parameters('storageName')]",
+        "name": "[variables('uniqueStorageName')]",
         "type": "Microsoft.Storage/storageAccounts",
+        "location": "[parameters('location')]",
         "apiVersion": "2023-01-01",
         "tags": {
-            "displayName": "nach8kethaiuhja"
+            "displayName": "storageaccount"
         },
-        "location": "[resourceGroup().location]",
-        "kind": "Storage",
+        "kind": "StorageV2",
         "sku": {
             "name": "Premium_LRS",
             "tier": "Premium"
